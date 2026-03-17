@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Você ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #ff9a9e;
+            background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+            height: 100vh;
+            overflow: hidden;
+            color: #333;
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 10;
+            width: 90%;
+            max-width: 500px;
+        }
+
+        h1, h2 { font-family: 'Dancing Script', cursive; }
+
+        button {
+            padding: 15px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 12px;
+            background: #ff4d6d;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            margin: 5px;
+        }
+
+        button:hover { background: #ff1e4d; transform: scale(1.05); }
+
+        .hidden { display: none; }
+
+        /* DECORAÇÕES FLUTUANTES */
+        .decoracao { position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 1; pointer-events: none; }
+        
+        .palavra {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 22px;
+            font-weight: bold;
+            animation: flutuar 6s infinite alternate ease-in-out;
+        }
+
+        .brilho {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: brilho 2s infinite alternate;
+        }
+
+        @keyframes flutuar { from { transform: translateY(0px); } to { transform: translateY(-25px); } }
+        @keyframes brilho { from { opacity: 0.3; transform: scale(1); } to { opacity: 1; transform: scale(1.8); } }
+
+        .carta {
+            background: #fffaf0;
+            padding: 30px;
+            border-radius: 20px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 22px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        }
+
+        .musicas button { display: block; margin: 10px auto; width: 100%; font-size: 16px; }
+
+        .coracao {
+            position: absolute;
+            color: #ff4d6d;
+            animation: cair 6s linear infinite;
+            z-index: 5;
+        }
+
+        @keyframes cair {
+            from { transform: translateY(-10vh); opacity: 1; }
+            to { transform: translateY(110vh); opacity: 0; }
+        }
+
+        .fade { animation: fadeIn 1s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    </style>
+</head>
+<body>
+
+    <div class="decoracao">
+        <div class="palavra" style="top:10%; left:5%;">Você é minha luz</div>
+        <div class="palavra" style="top:25%; left:70%;">Te vivo</div>
+        <div class="palavra" style="top:60%; left:10%;">Sou seu cantor</div>
+        <div class="palavra" style="top:85%; left:60%;">Minha melodia</div>
+
+        <div class="brilho" style="top:20%; left:40%;"></div>
+        <div class="brilho" style="top:70%; left:60%;"></div>
+        <div class="brilho" style="top:50%; left:20%;"></div>
+    </div>
+
+    
+    <div class="container fade" id="pagina1">
+        <h1>Oi meu amor, essa é minha surpresa de hj<br>
+        De: Victor<br>
+    Para: Lorenna<br>
+❤️</h1>
+        <button onclick="abrirCarta()">Clique aqui para abrir</button>
+    </div>
+
+    
+    <div class="container hidden" id="pagina2">
+        <div class="carta">
+<audio id="music" loop>
+  <source src="https://raw.githubusercontent.com/victorhugodossantos3200-sudo/site/36e008ca17345b04c70c997b71d214bfd7bda9f9/Sylvia%20Salustti%2C%20Raphael%20Rossato%20-%20Vejo%20Enfim%20a%20Luz%20Brilhar%20(De%20Enrolados_V%C3%ADdeo%20Oficial)%20-%20DisneyMusicBRVEVO%20(youtube).mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  document.addEventListener("click", () => {
+    document.getElementById("music").play();
+  });
+</script>
+            <h2>💌 Minha Carta</h2>
+            <p>
+                Oi meu amor kkk, fiz isso pra você, ainda n sou dos melhores...<br>
+                A cada dia mais vejo que você é minha luz, sinto saudade sem nem termos nos encontrado<br>
+                Amo cada segundo das nossas conversas, fico esperando você, cada resposta...<br>
+                Amo sua reciprocidade, e te prometo meu amor, cada dia mais te mostrar o quanto te quero...<br>
+                Obrigado por estar comigo... e que Deus esteja sempre conosco em cada momento... sempre nós três...<br>
+                Te vivo minha vida...!❤️
+            </p>
+        </div>
+        <br>
+        <button onclick="irMusicas()">Escolher nossa música 🎶</button>
+    </div>
+
+    
+    <div class="container hidden" id="pagina3">
+        <audio stop></audio>
+        <h2>Escolhe nossa música 🎶</h2>
+        <p style="color: #fff; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">São algumas musicas que considero nossas... ❤️</p>
+        <div class="musicas">
+            <button onclick="tocarMusica('https://youtu.be/sRITrFmTT3s?si=IQkebBPblzlUg3hQ')">Vejo Enfim a Luz 🕯️</button>
+            <button onclick="tocarMusica('https://youtu.be/dWpGsK8Md28?si=O-6r624q3wqBACHi')">Te Vivo 💘</button>
+            <button onclick="tocarMusica('https://youtu.be/LwnnmhEPNuE?si=AVJMKc_ZQ3bI-GKD')">O Amor Coloriu 🎨</button>
+            <button onclick="tocarMusica('https://youtu.be/sRITrFmTT3s?si=3qMV2qfK4i2ImxJ-')">Pra Sempre Com Você ♾️</button>
+        </div>
+    </div>
+
+    <
+    <div id="divMusicaCarta" style="position: absolute; left: -9999px;"></div>
+
+    <script>
+        
+        const linkMusicaCarta = "https://www.youtube.com/watch?v=sRITrFmTT3s&list=RDsRITrFmTT3s&start_radio=1"; 
+
+        function extrairID(url) {
+            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+            const match = url.match(regExp);
+            return (match && match[2].length == 11) ? match[2] : null;
+        }
+
+        function abrirCarta() {
+            document.getElementById('pagina1').classList.add('hidden');
+            const p2 = document.getElementById('pagina2');
+            p2.classList.remove('hidden');
+            p2.classList.add('fade');
+
+            
+            const id = extrairID(linkMusicaCarta);
+            if(id) {
+                
+                document.getElementById('divMusicaCarta').innerHTML = 
+                    `<iframe width="1" height="1" src="https://www.youtube.com/embed/${id}?autoplay=1&loop=1&playlist=${id}" 
+                    frameborder="0" allow="autoplay"></iframe>`;
+            }
+        }
+
+        function irMusicas() {
+            document.getElementById('pagina2').classList.add('hidden');
+            const p3 = document.getElementById('pagina3');
+            p3.classList.remove('hidden');
+            p3.classList.add('fade');
+            
+            
+            document.getElementById('divMusicaCarta').innerHTML = ""; 
+        }
+
+        function tocarMusica(link) {
+            
+            window.open(link, '_blank');
+        }
+
+        
+        setInterval(() => {
+            const coracao = document.createElement('div');
+            coracao.classList.add('coracao');
+            coracao.innerText = '❤️';
+            coracao.style.left = Math.random() * 100 + 'vw';
+            coracao.style.fontSize = (Math.random() * 20 + 12) + 'px';
+            document.body.appendChild(coracao);
+            setTimeout(() => { coracao.remove(); }, 6000);
+        }, 500);
+    </script>
+</body>
+</html>
